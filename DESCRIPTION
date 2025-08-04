@@ -1,0 +1,13 @@
+Package: dashFullcalendar
+Title: A Plotly Dash wrapper for FullCalendar
+Version: 0.0.1
+Description: A Plotly Dash wrapper for FullCalendar
+Depends: R (>= 3.0.2)
+Imports: 
+Suggests: 
+License: MIT + file LICENSE
+URL: https://github.com/https://github.com/ScottTpirate/dash-fullcalendar
+BugReports: https://github.com/https://github.com/ScottTpirate/dash-fullcalendar/issues
+Encoding: UTF-8
+LazyData: true
+KeepSource: true
