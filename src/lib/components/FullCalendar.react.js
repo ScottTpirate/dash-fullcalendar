@@ -70,9 +70,9 @@ const DashFullCalendar = ({
 
     useEffect(() => {
         const api = calRef.current?.getApi();
-        if (!api || !command) return;
+        if (!api || !_command) {return;}
 
-        switch (command.type) {
+        switch (_command.type) {
             case "next":
                 api.next();
                 break;
@@ -83,8 +83,8 @@ const DashFullCalendar = ({
                 api.today();
                 break;
             case "changeView":
-                if (command.view) {
-                    api.changeView(command.view);
+                if (_command.view) {
+                    api.changeView(_command.view);
                 }
                 break;
             // Add more commands as needed
@@ -92,7 +92,7 @@ const DashFullCalendar = ({
                 // Unknown command
                 break;
         }
-    }, [command]);
+    }, [_command]);
 
     /* ---------- Dash ↔ FullCalendar event bridges ---------- */
 

@@ -26,31 +26,45 @@ No monkey‑patching of FullCalendar internals.
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    Unique HTML id for the calendar container.  See FullCalendar docs.
 
-- allDayClassNames (list | dict | string; optional)
+- allDayClassNames (list | dict | string; optional):
+    Class names for the all-day row.  See FullCalendar docs.
 
-- allDayContent (a list of or a singular dash component, string or number; optional)
+- allDayContent (a list of or a singular dash component, string or number; optional):
+    Custom renderer for the all-day cell.  See FullCalendar docs.
 
-- allDaySlot (boolean; optional)
+- allDaySlot (boolean; optional):
+    Display the all-day row in time-grid views.  See FullCalendar
+    docs.
 
-- allDayText (string; optional)
+- allDayText (string; optional):
+    Text label for the all-day slot.  See FullCalendar docs.
 
-- aspectRatio (number; optional)
+- aspectRatio (number; optional):
+    Width/height ratio when `height` is auto.  See FullCalendar docs.
 
-- businessHours (boolean | dict | list; optional)
+- businessHours (boolean | dict | list; optional):
+    Business-hours definition(s) or `True` for default.  See
+    FullCalendar docs.
 
-- buttonIcons (dict; optional)
+- buttonIcons (dict; optional):
+    Icon class strings mapped to built-in button names.  See
+    FullCalendar docs.
 
-- buttonText (dict; optional)
+- buttonText (dict; optional):
+    Override text labels for built-in buttons.  See FullCalendar docs.
 
 - command (dict; optional):
     An object specifying a command to execute on the calendar API,
     such as {'type': 'next'} to navigate to the next period.
 
-- contentHeight (number | string; optional)
+- contentHeight (number | string; optional):
+    Height of the scrollable content area.  See FullCalendar docs.
 
-- customButtons (dict; optional)
+- customButtons (dict; optional):
+    Custom button definitions keyed by name.  See FullCalendar docs.
 
 - dateClick (boolean | number | string | dict | list; optional):
     The date string of the clicked date, for use in Dash callbacks.
@@ -59,258 +73,385 @@ Keyword arguments:
     Object containing the current date range, for use in Dash
     callbacks.
 
-- dayCellClassNames (list | dict | string; optional)
+- dayCellClassNames (list | dict | string; optional):
+    Class names for day cells.  See FullCalendar docs.
 
-- dayCellContent (a list of or a singular dash component, string or number; optional)
+- dayCellContent (a list of or a singular dash component, string or number; optional):
+    Custom renderer for day cells.  See FullCalendar docs.
 
-- dayHeaderClassNames (list | dict | string; optional)
+- dayHeaderClassNames (list | dict | string; optional):
+    Class names for day headers.  See FullCalendar docs.
 
-- dayHeaderContent (a list of or a singular dash component, string or number; optional)
+- dayHeaderContent (a list of or a singular dash component, string or number; optional):
+    Custom renderer for day headers.  See FullCalendar docs.
 
-- dayHeaderFormat (dict | string; optional)
+- dayHeaderFormat (dict | string; optional):
+    Formatter for day-header text.  See FullCalendar docs.
 
-- dayMaxEventRows (boolean | number; optional)
+- dayMaxEventRows (boolean | number; optional):
+    Alternate way to cap events per day (rows).  See FullCalendar
+    docs.
 
-- dayMaxEvents (boolean | number; optional)
+- dayMaxEvents (boolean | number; optional):
+    Collapse rows after this many events per day.  See FullCalendar
+    docs.
 
-- dayMinWidth (number; optional)
+- dayMinWidth (number; optional):
+    Minimum pixel width of a day column.  See FullCalendar docs.
 
-- dayPopoverFormat (dict | string; optional)
+- dayPopoverFormat (dict | string; optional):
+    Date-format skeleton for the day popover.  See FullCalendar docs.
 
-- defaultAllDay (boolean; optional)
+- defaultAllDay (boolean; optional):
+    Default all-day status for new events.  See FullCalendar docs.
 
-- dir (string; optional)
+- dir (string; optional):
+    Text direction: ‘ltr’ or ‘rtl’.  See FullCalendar docs.
 
-- displayEventEnd (boolean; optional)
+- displayEventEnd (boolean; optional):
+    Show event end time.  See FullCalendar docs.
 
-- displayEventTime (boolean; optional)
+- displayEventTime (boolean; optional):
+    Show event time.  See FullCalendar docs.
 
-- dragRevertDuration (number; optional)
+- dragRevertDuration (number; optional):
+    Duration for drag revert animation.  See FullCalendar docs.
 
-- dragScroll (boolean; optional)
+- dragScroll (boolean; optional):
+    Allow calendar to scroll during drag.  See FullCalendar docs.
 
-- dropAccept (string; optional)
+- dropAccept (string; optional):
+    Selector or function to accept drops.  See FullCalendar docs.
 
-- droppable (boolean; optional)
+- droppable (boolean; optional):
+    Allow external elements to be dropped.  See FullCalendar docs.
 
-- editable (boolean; optional)
+- editable (boolean; optional):
+    Allow events to be editable.  See FullCalendar docs.
 
-- endParam (string; optional)
+- endParam (string; optional):
+    Name of end date GET param.  See FullCalendar docs.
 
 - eventAdd (boolean | number | string | dict | list; optional):
     Object containing information about the added event, for use in
     Dash callbacks.
 
-- eventBackgroundColor (string; optional)
+- eventBackgroundColor (string; optional):
+    Default background color for events.  See FullCalendar docs.
 
-- eventBorderColor (string; optional)
+- eventBorderColor (string; optional):
+    Default border color for events.  See FullCalendar docs.
 
 - eventChange (boolean | number | string | dict | list; optional):
     Object containing information about the changed event, for use in
     Dash callbacks.
 
-- eventClassNames (list | dict | string; optional)
+- eventClassNames (list | dict | string; optional):
+    Class names for events.  See FullCalendar docs.
 
 - eventClick (boolean | number | string | dict | list; optional):
     Object containing information about the clicked event, for use in
     Dash callbacks.
 
-- eventColor (string; optional)
+- eventColor (string; optional):
+    Default color for events.  See FullCalendar docs.
 
-- eventConstraint (dict | string; optional)
+- eventConstraint (dict | string; optional):
+    Event constraint for dragging/resizing.  See FullCalendar docs.
 
-- eventContent (a list of or a singular dash component, string or number; optional)
+- eventContent (a list of or a singular dash component, string or number; optional):
+    Custom renderer for events.  See FullCalendar docs.
 
-- eventDisplay (string; optional)
+- eventDisplay (string; optional):
+    Rendering style for events.  See FullCalendar docs.
 
 - eventDrop (boolean | number | string | dict | list; optional):
     Object containing information about the dropped event, for use in
     Dash callbacks.
 
-- eventDurationEditable (boolean; optional)
+- eventDurationEditable (boolean; optional):
+    Allow event duration to be editable.  See FullCalendar docs.
 
-- eventLongPressDelay (number; optional)
+- eventLongPressDelay (number; optional):
+    Delay for event long press (ms).  See FullCalendar docs.
 
-- eventOrder (list | string; optional)
+- eventOrder (list | string; optional):
+    Determines event sort order.  See FullCalendar docs.
 
-- eventOrderStrict (boolean; optional)
+- eventOrderStrict (boolean; optional):
+    Enforce strict event ordering.  See FullCalendar docs.
 
-- eventOverlap (boolean; optional)
+- eventOverlap (boolean; optional):
+    Allow events to overlap.  See FullCalendar docs.
 
 - eventRemove (boolean | number | string | dict | list; optional):
     Object containing information about the removed event, for use in
     Dash callbacks.
 
-- eventResizableFromStart (boolean; optional)
+- eventResizableFromStart (boolean; optional):
+    Allow resizing events from start.  See FullCalendar docs.
 
 - eventResize (boolean | number | string | dict | list; optional):
     Object containing information about the resized event, for use in
     Dash callbacks.
 
-- eventSources (list; optional)
+- eventSources (list; optional):
+    Array of event source objects.  See FullCalendar docs.
 
-- eventStartEditable (boolean; optional)
+- eventStartEditable (boolean; optional):
+    Allow event start to be editable.  See FullCalendar docs.
 
-- eventTextColor (string; optional)
+- eventTextColor (string; optional):
+    Default text color for events.  See FullCalendar docs.
 
-- eventTimeFormat (dict | string; optional)
+- eventTimeFormat (dict | string; optional):
+    Formatter for event time text.  See FullCalendar docs.
 
-- events (list | string; optional)
+- events (list | string; optional):
+    Array, URL, or function that supplies the initial events.  See
+    FullCalendar docs.
 
 - eventsSet (boolean | number | string | dict | list; optional):
     Array of current event objects in the calendar, for use in Dash
     callbacks.
 
-- expandRows (boolean; optional)
+- expandRows (boolean; optional):
+    When `True`, rows stretch to fill vertical space.  See
+    FullCalendar docs.
 
-- firstDay (number; optional)
+- firstDay (number; optional):
+    Index of week’s first day (0 = Sunday).  See FullCalendar docs.
 
-- fixedWeekCount (boolean; optional)
+- fixedWeekCount (boolean; optional):
+    Always render 6 weeks in month view.  See FullCalendar docs.
 
-- footerToolbar (dict | boolean; optional)
+- footerToolbar (dict | boolean; optional):
+    Config for the bottom toolbar; set `False` to hide.  See
+    FullCalendar docs.
 
-- handleWindowResize (boolean; optional)
+- handleWindowResize (boolean; optional):
+    Recompute dimensions on window resize.  See FullCalendar docs.
 
-- headerToolbar (dict | boolean; optional)
+- headerToolbar (dict | boolean; optional):
+    Config for the top toolbar; set `False` to hide.  See FullCalendar
+    docs.
 
-- height (number | string; optional)
+- height (number | string; optional):
+    Overall calendar height (`number`, ‘auto’, ‘parent’, or function).
+    See FullCalendar docs.
 
-- hiddenDays (list; optional)
+- hiddenDays (list; optional):
+    Array of day numbers to hide (0 = Sun).  See FullCalendar docs.
 
-- initialDate (string; optional)
+- initialDate (string; optional):
+    Date the calendar navigates to on first render.  See FullCalendar
+    docs.
 
-- initialView (string; optional)
+- initialView (string; optional):
+    Name of the view the calendar shows on first load.  See
+    FullCalendar docs.
 
-- lazyFetching (boolean; optional)
+- lazyFetching (boolean; optional):
+    Fetch events only when needed.  See FullCalendar docs.
 
-- listDayFormat (dict | string | boolean; optional)
+- listDayFormat (dict | string | boolean; optional):
+    Formatter for list view group headers.  See FullCalendar docs.
 
-- listDaySideFormat (dict | string | boolean; optional)
+- listDaySideFormat (dict | string | boolean; optional):
+    Formatter for list view side headers.  See FullCalendar docs.
 
-- locale (string; optional)
+- locale (string; optional):
+    Calendar locale code (e.g. ‘en-gb’).  See FullCalendar docs.
 
-- locales (list; optional)
+- locales (list; optional):
+    Array of additional locale objects to load.  See FullCalendar
+    docs.
 
-- longPressDelay (number; optional)
+- longPressDelay (number; optional):
+    Delay for long press (ms).  See FullCalendar docs.
 
-- moreLinkClassNames (list | dict | string; optional)
+- moreLinkClassNames (list | dict | string; optional):
+    Class names for the ‘+ more’ link.  See FullCalendar docs.
 
-- moreLinkClick (string; optional)
+- moreLinkClick (string; optional):
+    Action when a ‘+ more’ link is clicked.  See FullCalendar docs.
 
-- moreLinkContent (a list of or a singular dash component, string or number; optional)
+- moreLinkContent (a list of or a singular dash component, string or number; optional):
+    Custom renderer for the ‘+ more’ link.  See FullCalendar docs.
 
-- moreLinkText (string; optional)
+- moreLinkText (string; optional):
+    Text factory for the ‘+ more’ link.  See FullCalendar docs.
 
-- multiMonthMaxColumns (number; optional)
+- multiMonthMaxColumns (number; optional):
+    Max columns in multi-month view.  See FullCalendar docs.
 
-- multiMonthMinWidth (number; optional)
+- multiMonthMinWidth (number; optional):
+    Min width for multi-month columns.  See FullCalendar docs.
 
-- multiMonthTitleFormat (dict | string; optional)
+- multiMonthTitleFormat (dict | string; optional):
+    Title format for multi-month view.  See FullCalendar docs.
 
-- navLinkDayClick (string; optional)
+- navLinkDayClick (string; optional):
+    Handler for day navigation link clicks.  See FullCalendar docs.
 
-- navLinkHint (string; optional)
+- navLinkHint (string; optional):
+    Tooltip for navigation links.  See FullCalendar docs.
 
-- navLinkWeekClick (string; optional)
+- navLinkWeekClick (string; optional):
+    Handler for week navigation link clicks.  See FullCalendar docs.
 
-- navLinks (boolean; optional)
+- navLinks (boolean; optional):
+    Enable day/week navigation links.  See FullCalendar docs.
 
-- nextDayThreshold (string | dict; optional)
+- nextDayThreshold (string | dict; optional):
+    Threshold for \"next day\" calculation.  See FullCalendar docs.
 
-- noEventsClassNames (list | dict | string; optional)
+- noEventsClassNames (list | dict | string; optional):
+    Class names applied when no events are present.  See FullCalendar
+    docs.
 
-- noEventsContent (a list of or a singular dash component, string or number; optional)
+- noEventsContent (a list of or a singular dash component, string or number; optional):
+    Custom ‘no events’ content renderer.  See FullCalendar docs.
 
-- now (string; optional)
+- now (string; optional):
+    Function/string/Date returning the ‘current’ date.  See
+    FullCalendar docs.
 
-- nowIndicator (boolean; optional)
+- nowIndicator (boolean; optional):
+    Render a line marking the current time.  See FullCalendar docs.
 
-- progressiveEventRendering (boolean; optional)
+- progressiveEventRendering (boolean; optional):
+    Render events as they load.  See FullCalendar docs.
 
-- rerenderDelay (number; optional)
+- rerenderDelay (number; optional):
+    Delay before rerendering events.  See FullCalendar docs.
 
-- scrollTime (string | dict; optional)
+- scrollTime (string | dict; optional):
+    Initial scroll position of time-grid views.  See FullCalendar
+    docs.
 
-- scrollTimeReset (boolean; optional)
+- scrollTimeReset (boolean; optional):
+    Reset scroll position when changing views.  See FullCalendar docs.
 
 - select (boolean | number | string | dict | list; optional):
     Object containing the selected range information, for use in Dash
     callbacks.
 
-- selectConstraint (dict | string; optional)
+- selectConstraint (dict | string; optional):
+    Selection constraint for selecting.  See FullCalendar docs.
 
-- selectLongPressDelay (number; optional)
+- selectLongPressDelay (number; optional):
+    Delay for select long press (ms).  See FullCalendar docs.
 
-- selectMinDistance (number; optional)
+- selectMinDistance (number; optional):
+    Minimum drag distance before selection.  See FullCalendar docs.
 
-- selectMirror (boolean; optional)
+- selectMirror (boolean; optional):
+    Show a mirror of selection while dragging.  See FullCalendar docs.
 
-- selectOverlap (boolean; optional)
+- selectOverlap (boolean; optional):
+    Allow selection to overlap events.  See FullCalendar docs.
 
-- selectable (boolean; optional)
+- selectable (boolean; optional):
+    Allow date/time range selection.  See FullCalendar docs.
 
-- showNonCurrentDates (boolean; optional)
+- showNonCurrentDates (boolean; optional):
+    Render leading/trailing days in month view.  See FullCalendar
+    docs.
 
-- slotDuration (string | dict; optional)
+- slotDuration (string | dict; optional):
+    Granularity of the vertical time slots.  See FullCalendar docs.
 
-- slotLabelClassNames (list | dict | string; optional)
+- slotLabelClassNames (list | dict | string; optional):
+    Class names for slot labels.  See FullCalendar docs.
 
-- slotLabelContent (a list of or a singular dash component, string or number; optional)
+- slotLabelContent (a list of or a singular dash component, string or number; optional):
+    Custom renderer for slot labels.  See FullCalendar docs.
 
-- slotLabelFormat (list | dict | string; optional)
+- slotLabelFormat (list | dict | string; optional):
+    Formatter(s) for slot labels.  See FullCalendar docs.
 
-- slotLabelInterval (string | dict; optional)
+- slotLabelInterval (string | dict; optional):
+    Interval between slot labels.  See FullCalendar docs.
 
-- slotLaneClassNames (list | dict | string; optional)
+- slotLaneClassNames (list | dict | string; optional):
+    Class names for resource lanes.  See FullCalendar docs.
 
-- slotLaneContent (a list of or a singular dash component, string or number; optional)
+- slotLaneContent (a list of or a singular dash component, string or number; optional):
+    Custom renderer for resource lanes.  See FullCalendar docs.
 
-- slotMaxTime (string | dict; optional)
+- slotMaxTime (string | dict; optional):
+    Latest time shown on a day.  See FullCalendar docs.
 
-- slotMinTime (string | dict; optional)
+- slotMinTime (string | dict; optional):
+    Earliest time shown on a day.  See FullCalendar docs.
 
-- slotMinWidth (number; optional)
+- slotMinWidth (number; optional):
+    Minimum pixel width of a resource column.  See FullCalendar docs.
 
-- snapDuration (string | dict; optional)
+- snapDuration (string | dict; optional):
+    Grid snapping interval while dragging.  See FullCalendar docs.
 
-- startParam (string; optional)
+- startParam (string; optional):
+    Name of start date GET param.  See FullCalendar docs.
 
-- stickyFooterScrollbar (boolean; optional)
+- stickyFooterScrollbar (boolean; optional):
+    Show sticky scrollbar at the bottom.  See FullCalendar docs.
 
-- stickyHeaderDates (boolean; optional)
+- stickyHeaderDates (boolean; optional):
+    Keep date headers fixed while scrolling.  See FullCalendar docs.
 
-- themeSystem (string; optional)
+- themeSystem (string; optional):
+    Theme system to apply to built-in UI (e.g. ‘standard’,
+    ‘bootstrap5’).  See FullCalendar docs.
 
-- timeZoneParam (string; optional)
+- timeZoneParam (string; optional):
+    Name of time zone GET param.  See FullCalendar docs.
 
-- titleFormat (dict | string; optional)
+- titleFormat (dict | string; optional):
+    Date-formatting skeleton or object for the view title.  See
+    FullCalendar docs.
 
 - unselect (boolean | number | string | dict | list; optional):
     Flag indicating unselection occurred, for use in Dash callbacks.
 
-- unselectAuto (boolean; optional)
+- unselectAuto (boolean; optional):
+    Unselect when clicking outside.  See FullCalendar docs.
 
-- unselectCancel (string; optional)
+- unselectCancel (string; optional):
+    CSS selector for elements that prevent unselect.  See FullCalendar
+    docs.
 
-- validRange (dict; optional)
+- validRange (dict; optional):
+    Restricts navigation/selection to a date range.  See FullCalendar
+    docs.
 
-- viewClassNames (list | dict | string; optional)
+- viewClassNames (list | dict | string; optional):
+    Class names for the view container.  See FullCalendar docs.
 
-- views (dict; optional)
+- views (dict; optional):
+    Custom view definitions mapped by name.  See FullCalendar docs.
 
-- weekNumberCalculation (string; optional)
+- weekNumberCalculation (string; optional):
+    Custom week-number algorithm.  See FullCalendar docs.
 
-- weekNumberFormat (dict | string; optional)
+- weekNumberFormat (dict | string; optional):
+    Formatter for week-number text.  See FullCalendar docs.
 
-- weekNumbers (boolean; optional)
+- weekNumbers (boolean; optional):
+    Show ISO week numbers down the side.  See FullCalendar docs.
 
-- weekText (string; optional)
+- weekText (string; optional):
+    Short label preceding week numbers.  See FullCalendar docs.
 
-- weekTextLong (string; optional)
+- weekTextLong (string; optional):
+    Long label preceding week numbers.  See FullCalendar docs.
 
-- weekends (boolean; optional)
+- weekends (boolean; optional):
+    Show weekend columns.  See FullCalendar docs.
 
-- windowResizeDelay (number; optional)"""
+- windowResizeDelay (number; optional):
+    Debounce (ms) for the resize handler.  See FullCalendar docs."""
     _children_props = ['moreLinkContent', 'allDayContent', 'slotLaneContent', 'slotLabelContent', 'dayHeaderContent', 'dayCellContent', 'noEventsContent', 'eventContent']
     _base_nodes = ['moreLinkContent', 'allDayContent', 'slotLaneContent', 'slotLabelContent', 'dayHeaderContent', 'dayCellContent', 'noEventsContent', 'eventContent', 'children']
     _namespace = 'dash_fullcalendar'
