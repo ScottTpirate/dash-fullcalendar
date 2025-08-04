@@ -8,6 +8,7 @@ app.layout = html.Div(
         dcal.FullCalendar(
             id="cal",
             initialView="dayGridMonth",
+            editable=True,
             # FullCalendar props passed unchanged:
             headerToolbar={"left": "prev,next today", "center": "title",
                            "right": "dayGridMonth,timeGridWeek"},

@@ -18,7 +18,18 @@ import scrollGridPlugin from "@fullcalendar/scrollgrid";
 const DashFullCalendar = ({
     id,
     setProps,
-    command,
+    command: _command,
+    dateClick: _dateClick,
+    eventClick: _eventClick,
+    select: _select,
+    unselect: _unselect,
+    eventDrop: _eventDrop,
+    eventResize: _eventResize,
+    eventAdd: _eventAdd,
+    eventChange: _eventChange,
+    eventRemove: _eventRemove,
+    datesSet: _datesSet,
+    eventsSet: _eventsSet,
     // anything else the user supplies:
     ...calendarProps
 }) => {
@@ -90,10 +101,8 @@ const DashFullCalendar = ({
             if (setProps) {
                 setProps({dateClick: info.dateStr});
             }
-            // also honour user‑supplied handler (if any)
-            calendarProps.dateClick?.(info);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleEventClick = useCallback(
@@ -110,9 +119,8 @@ const DashFullCalendar = ({
                     }
                 });
             }
-            calendarProps.eventClick?.(info);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleSelect = useCallback(
@@ -126,9 +134,8 @@ const DashFullCalendar = ({
                     }
                 });
             }
-            calendarProps.select?.(info);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleUnselect = useCallback(
@@ -136,9 +143,8 @@ const DashFullCalendar = ({
             if (setProps) {
                 setProps({unselect: true});
             }
-            calendarProps.unselect?.(info);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleEventDrop = useCallback(
@@ -153,9 +159,8 @@ const DashFullCalendar = ({
                     }
                 });
             }
-            calendarProps.eventDrop?.(info);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleEventResize = useCallback(
@@ -170,9 +175,8 @@ const DashFullCalendar = ({
                     }
                 });
             }
-            calendarProps.eventResize?.(info);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleEventAdd = useCallback(
@@ -184,9 +188,8 @@ const DashFullCalendar = ({
                     }
                 });
             }
-            calendarProps.eventAdd?.(arg);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleEventChange = useCallback(
@@ -200,9 +203,8 @@ const DashFullCalendar = ({
                     }
                 });
             }
-            calendarProps.eventChange?.(arg);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleEventRemove = useCallback(
@@ -215,9 +217,8 @@ const DashFullCalendar = ({
                     }
                 });
             }
-            calendarProps.eventRemove?.(arg);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleDatesSet = useCallback(
@@ -231,9 +232,8 @@ const DashFullCalendar = ({
                     }
                 });
             }
-            calendarProps.datesSet?.(info);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     const handleEventsSet = useCallback(
@@ -243,9 +243,8 @@ const DashFullCalendar = ({
                     eventsSet: events.map(serializeEvent)
                 });
             }
-            calendarProps.eventsSet?.(events);
         },
-        [setProps, calendarProps]
+        [setProps]
     );
 
     return (
