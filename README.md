@@ -15,7 +15,7 @@ pip install dash-fullcalendar
 ### Development snapshot (For use inside private github repo)
 
 ```bash
-pip install git+ssh://git@bitbucket.org/credit-associates-cra/dash-fullcalendar.git
+pip install git+ssh://git@bitbucket.org/credit-associates-cra/dash_fullcalendar.git
 ```
 
 > **No Node.js required at install time.**  
