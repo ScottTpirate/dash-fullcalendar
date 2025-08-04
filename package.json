@@ -1,6 +1,6 @@
 {
   "name": "dash_fullcalendar",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Plotly Dash wrapper for FullCalendar",
 "repository": {
     "type": "git",
