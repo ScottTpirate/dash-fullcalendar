@@ -6,14 +6,9 @@ A lightweight Dash component library that wraps **[@fullcalendar/react](https://
 
 ## Installation
 
-### Stable release (from PyPI)
-
 ```bash
 pip install dash-fullcalendar
 ```
-
-> **No Node.js required at install time.**  
-> Pre‑built JavaScript bundles ship inside the wheel.
 
 ---
 
@@ -107,19 +102,6 @@ Ignored via `.gitignore`:
 
 ---
 
-## Releasing
-
-```bash
-npm run build:all          # 1️⃣ compile JS
-python -m build            # 2️⃣ build wheel + sdist
-twine upload dist/*        # 3️⃣ publish to PyPI
-npm publish                # 4️⃣ publish to npm (optional)
-git tag vX.Y.Z && git push --tags
-```
-
-Because the wheel already contains the JS bundle (see `MANIFEST.in`), end users do **not** need Node or npm.
-
----
 
 ## Contributing
 
@@ -135,4 +117,4 @@ Pull requests welcome!  To get a change accepted:
 
 ## License
 
-MIT © 2025 YOUR NAME
+MIT © 2025 Scott Kilgore
