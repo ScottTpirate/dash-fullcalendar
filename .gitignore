@@ -223,6 +223,8 @@ celerybeat-schedule
 # SageMath parsed files
 *.sage.py
 
+.pyirc
+
 # Environments
 .venv
 env/
@@ -230,6 +232,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+notes.md
 
 # Spyder project settings
 .spyderproject
