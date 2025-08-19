@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useCallback} from "react";
+import React, {useRef, useEffect, useCallback, useState, useMemo} from "react";
 import PropTypes from "prop-types";
 
 import FullCalendar from "@fullcalendar/react";
@@ -7,7 +7,6 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
 import multiMonthPlugin from "@fullcalendar/multimonth";
-import scrollGridPlugin from "@fullcalendar/scrollgrid";
 
 
 /**
@@ -30,10 +29,68 @@ const DashFullCalendar = ({
     eventRemove: _eventRemove,
     datesSet: _datesSet,
     eventsSet: _eventsSet,
+    schedulerLicenseKey,
+    plugins: userPlugins,
     // anything else the user supplies:
     ...calendarProps
 }) => {
     const calRef = useRef(null);
+
+    const [premiumPlugins, setPremiumPlugins] = useState([]);
+
+    useEffect(() => {
+        let cancelled = false;
+
+        async function loadPremium() {
+            const names = Array.isArray(userPlugins)
+                ? userPlugins.filter((p) => typeof p === 'string').map((s) => String(s).toLowerCase())
+                : [];
+
+            // Map normalized names to @fullcalendar package specifiers (no direct imports here)
+            const nameToSpec = {
+                scrollgrid: 'scrollgrid',
+                resourcetimeline: 'resource-timeline',
+                resourcetimegrid: 'resource-timegrid',
+                resource: 'resource'
+            };
+
+            // Resolve requested Premium specs from provided names
+            const requestedSpecs = names
+                .map((n) => n.replace(/[-_\s]/g, '').toLowerCase())
+                .map((n) => nameToSpec[n])
+                .filter(Boolean);
+
+            if (!schedulerLicenseKey || requestedSpecs.length === 0) {
+                if (!cancelled) setPremiumPlugins([]);
+                return;
+            }
+
+            // Dynamic context import so webpack doesn't hard-resolve absent packages at build time
+            const loaded = await Promise.all(
+                requestedSpecs.map(async (spec) => {
+                    try {
+                        const mod = await import(
+                            /* webpackInclude: /(scrollgrid|resource-timegrid|resource-timeline|resource)$/ */
+                            `@fullcalendar/${spec}`
+                        );
+                        return mod?.default ?? mod;
+                    } catch (e) {
+                        /* ignore if not present at runtime */
+                        return null;
+                    }
+                })
+            );
+
+            if (!cancelled) setPremiumPlugins(loaded.filter(Boolean));
+        }
+
+        loadPremium();
+        return () => { cancelled = true; };
+    }, [userPlugins, schedulerLicenseKey]);
+
+    const userPluginInstances = useMemo(() => (
+        Array.isArray(userPlugins) ? userPlugins.filter((p) => typeof p !== 'string') : []
+    ), [userPlugins]);
 
     /* ---------- Utility functions for serialization ---------- */
 
@@ -257,9 +314,11 @@ const DashFullCalendar = ({
                     interactionPlugin,
                     listPlugin,
                     multiMonthPlugin,
-                    scrollGridPlugin,
-                    ...(calendarProps.plugins || [])
+                    ...premiumPlugins,
+                    ...userPluginInstances
                 ]}
+                // Always pass the key if provided. Harmless for free plugins; avoids missing key when a user supplies a Premium plugin instance directly.
+                {...(schedulerLicenseKey ? { schedulerLicenseKey } : {})}
                 {...calendarProps}
                 dateClick={handleDateClick}
                 eventClick={handleEventClick}
@@ -383,7 +442,7 @@ DashFullCalendar.propTypes = {
      */
     dir: PropTypes.string,
     /**
-     * Index of week’s first day (0 = Sunday).  See FullCalendar docs.
+     * Index of week’s first day (0=Sunday).  See FullCalendar docs.
      */
     firstDay: PropTypes.number,
     /**
@@ -391,7 +450,7 @@ DashFullCalendar.propTypes = {
      */
     weekends: PropTypes.bool,
     /**
-     * Array of day numbers to hide (0 = Sun).  See FullCalendar docs.
+     * Array of day numbers to hide (0=Sun).  See FullCalendar docs.
      */
     hiddenDays: PropTypes.array,
     /**
@@ -658,6 +717,21 @@ DashFullCalendar.propTypes = {
      * Custom view definitions mapped by name.  See FullCalendar docs.
      */
     views: PropTypes.object,
+    /**
+     * Additional plugins. Accepts plugin instances (objects/functions) and/or plugin names (strings).
+     * If strings match Premium plugins (e.g., 'scrollgrid', 'resourceTimeline', 'resourceTimeGrid', 'resource'),
+     * they will be lazy-loaded only when `schedulerLicenseKey` is provided. Unknown strings are ignored.
+     */
+    plugins: PropTypes.arrayOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.func
+    ])),
+    /**
+     * FullCalendar Premium (Scheduler) license key. Required when using any Premium plugin
+     * such as resource views or scrollgrid. See docs: https://fullcalendar.io/docs/schedulerLicenseKey
+     */
+    schedulerLicenseKey: PropTypes.string,
     /**
      * Array of event source objects.  See FullCalendar docs.
      */

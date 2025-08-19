@@ -9,6 +9,7 @@ app.layout = html.Div(
             id="cal",
             initialView="dayGridMonth",
             editable=True,
+            selectable=True,
             # FullCalendar props passed unchanged:
             headerToolbar={"left": "prev,next today", "center": "title",
                            "right": "dayGridMonth,timeGridWeek"},
@@ -18,7 +19,12 @@ app.layout = html.Div(
             ],
         ),
         html.Div(id="clicked"),
-    ]
+    ],
+    style={
+            "padding-left": "20%",
+            "padding-right": "20%",
+            "padding-bottom": "10%",
+        }
 )
 
 

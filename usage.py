@@ -1,22 +1,37 @@
-import dash_fullcalendar
-from dash import Dash, callback, html, Input, Output
+from dash import Dash, html, Input, Output
+import dash_fullcalendar as dcal
 
 app = Dash(__name__)
 
-app.layout = html.Div([
-    dash_fullcalendar.FullCalendar(
-        id='input',
-        value='my-value',
-        label='my-label'
-    ),
-    html.Div(id='output')
-])
+app.layout = html.Div(
+    [
+        dcal.FullCalendar(
+            id="cal",
+            initialView="dayGridMonth",
+            editable=True,
+            selectable=True,
+            # FullCalendar props passed unchanged:
+            headerToolbar={"left": "prev,next today", "center": "title",
+                           "right": "dayGridMonth,timeGridWeek"},
+            events=[
+                {"title": "Audit", "date": "2025-08-01"},
+                {"title": "Go‑Live", "date": "2025-08-10"},
+            ],
+        ),
+        html.Div(id="clicked"),
+    ],
+    style={
+            "padding-left": "20%",
+            "padding-right": "20%",
+            "padding-bottom": "10%",
+        }
+)
 
 
-@callback(Output('output', 'children'), Input('input', 'value'))
-def display_output(value):
-    return 'You have entered {}'.format(value)
+@app.callback(Output("clicked", "children"), Input("cal", "dateClick"))
+def show_click(date):
+    return f"You clicked {date}" if date else "Click a date on the calendar."
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)

@@ -55,11 +55,13 @@ navLinkDayClick=NULL, navLinkHint=NULL,
 navLinkWeekClick=NULL, navLinks=NULL, nextDayThreshold=NULL,
 noEventsClassNames=NULL, noEventsContent=NULL,
 noEventsDidMount=NULL, noEventsWillUnmount=NULL, now=NULL,
-nowIndicator=NULL, progressiveEventRendering=NULL,
-rerenderDelay=NULL, scrollTime=NULL, scrollTimeReset=NULL,
-select=NULL, selectAllow=NULL, selectConstraint=NULL,
-selectLongPressDelay=NULL, selectMinDistance=NULL,
-selectMirror=NULL, selectOverlap=NULL, selectable=NULL,
+nowIndicator=NULL, plugins=NULL,
+progressiveEventRendering=NULL, rerenderDelay=NULL,
+schedulerLicenseKey=NULL, scrollTime=NULL,
+scrollTimeReset=NULL, select=NULL, selectAllow=NULL,
+selectConstraint=NULL, selectLongPressDelay=NULL,
+selectMinDistance=NULL, selectMirror=NULL,
+selectOverlap=NULL, selectable=NULL,
 showNonCurrentDates=NULL, slotDuration=NULL,
 slotLabelClassNames=NULL, slotLabelContent=NULL,
 slotLabelDidMount=NULL, slotLabelFormat=NULL,
@@ -235,7 +237,7 @@ weekends=NULL, windowResizeDelay=NULL)
 
 \item{expandRows}{Logical. When `true`, rows stretch to fill vertical space.  See FullCalendar docs.}
 
-\item{firstDay}{Numeric. Index of week’s first day (0 = Sunday).  See FullCalendar docs.}
+\item{firstDay}{Numeric. Index of week’s first day (0=Sunday).  See FullCalendar docs.}
 
 \item{fixedWeekCount}{Logical. Always render 6 weeks in month view.  See FullCalendar docs.}
 
@@ -247,7 +249,7 @@ weekends=NULL, windowResizeDelay=NULL)
 
 \item{height}{Numeric | character. Overall calendar height (`number`, ‘auto’, ‘parent’, or function).  See FullCalendar docs.}
 
-\item{hiddenDays}{Unnamed list. Array of day numbers to hide (0 = Sun).  See FullCalendar docs.}
+\item{hiddenDays}{Unnamed list. Array of day numbers to hide (0=Sun).  See FullCalendar docs.}
 
 \item{initialDate}{Character. Date the calendar navigates to on first render.  See FullCalendar docs.}
 
@@ -307,9 +309,16 @@ weekends=NULL, windowResizeDelay=NULL)
 
 \item{nowIndicator}{Logical. Render a line marking the current time.  See FullCalendar docs.}
 
+\item{plugins}{List of character | named lists. Additional plugins. Accepts plugin instances (objects/functions) and/or plugin names (strings).
+If strings match Premium plugins (e.g., 'scrollgrid', 'resourceTimeline', 'resourceTimeGrid', 'resource'),
+they will be lazy-loaded only when `schedulerLicenseKey` is provided. Unknown strings are ignored.}
+
 \item{progressiveEventRendering}{Logical. Render events as they load.  See FullCalendar docs.}
 
 \item{rerenderDelay}{Numeric. Delay before rerendering events.  See FullCalendar docs.}
+
+\item{schedulerLicenseKey}{Character. FullCalendar Premium (Scheduler) license key. Required when using any Premium plugin
+such as resource views or scrollgrid. See docs: https://fullcalendar.io/docs/schedulerLicenseKey}
 
 \item{scrollTime}{Character | named list. Initial scroll position of time-grid views.  See FullCalendar docs.}
 
