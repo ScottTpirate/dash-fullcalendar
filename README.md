@@ -12,12 +12,6 @@ A lightweight Dash component library that wraps **[@fullcalendar/react](https://
 pip install dash-fullcalendar
 ```
 
-### Development snapshot (For use inside private github repo)
-
-```bash
-pip install git+ssh://git@bitbucket.org/credit-associates-cra/dash_fullcalendar.git
-```
-
 > **No Node.js required at install time.**  
 > Pre‑built JavaScript bundles ship inside the wheel.
 
@@ -35,6 +29,8 @@ app.layout = html.Div([
     dcal.FullCalendar(
         id="cal",
         initialView="dayGridMonth",
+        editable=True,
+        selectable=True,
         events=[
             {"title": "Audit", "date": "2025-08-01"},
             {"title": "Go‑Live", "date": "2025-08-10"},
